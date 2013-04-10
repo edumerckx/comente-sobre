@@ -1,0 +1,47 @@
+* {
+	margin: 0;
+	padding: 0;	
+}
+
+body {
+	text-align: center;
+}
+
+#conteudo {
+	width: 600px;
+	margin: 100px auto;
+	font-family: sans-serif;
+}
+
+h1 {
+	color: #1f31c1;
+	padding-bottom: 15px;
+}
+
+#assunto, #enviar {
+	font-size: 1.5em;
+	 
+}
+
+#assunto {
+	border: 1px solid #ccc;
+	width: 350px;
+	padding: 8px;
+	color: #1f31c1;
+		
+}
+
+#enviar {
+	border: 1px solid #1f31c1;
+	background-color: #1f31c1;
+	color: #fff;
+	padding: 5px;
+}
+
+#msg {
+	display: block;
+	color: #f00;
+	font-size: 1em;
+	font-family: arial;
+	padding: 10px
+}

@@ -14,11 +14,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package br.com.caelum.vraptor.blank;
+package com.eduardojanuario.comente.controller;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.text.Normalizer;
+import java.text.Normalizer.Form;
+
+import org.json.simple.JSONObject;
+
+import com.eduardojanuario.comente.utils.Tratador;
+
+import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
+import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.view.Results;
 
 @Resource
 public class IndexController {
@@ -30,8 +42,27 @@ public class IndexController {
 	}
 
 	@Path("/")
+	@Get
 	public void index() {
-		result.include("variable", "VRaptor!");
+		
+	}
+	
+	/**
+	 * 
+	 */
+	@Path("/")
+	@Post
+	public void novo(String assunto) {
+		
+		String url = Tratador.geraUrlParamAmigavel(assunto);
+		
+		System.out.println(url);
+				
+		JSONObject retorno = new JSONObject();
+		retorno.put("retorno", "ok");
+		retorno.put("url", url);
+		
+		result.use(Results.http()).body(retorno.toString());
 	}
 
 }
