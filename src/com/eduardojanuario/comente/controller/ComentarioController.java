@@ -18,6 +18,7 @@ package com.eduardojanuario.comente.controller;
 
 import org.json.simple.JSONObject;
 
+import com.eduardojanuario.comente.dao.ComentarioDao;
 import com.eduardojanuario.comente.utils.Tratador;
 
 import br.com.caelum.vraptor.Get;
@@ -33,10 +34,12 @@ public class ComentarioController {
 
 	private final Result result;
 	private Validator validator;
+	private ComentarioDao dao;
 
-	public ComentarioController(Result result, Validator validator) {
+	public ComentarioController(Result result, Validator validator, ComentarioDao dao) {
 		this.result = result;
 		this.validator = validator;
+		this.dao = dao;
 	}
 
 	@Path("/")
