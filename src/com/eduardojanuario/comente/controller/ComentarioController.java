@@ -16,11 +16,6 @@
  */
 package com.eduardojanuario.comente.controller;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.text.Normalizer;
-import java.text.Normalizer.Form;
-
 import org.json.simple.JSONObject;
 
 import com.eduardojanuario.comente.utils.Tratador;
@@ -30,15 +25,18 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.Validator;
 import br.com.caelum.vraptor.view.Results;
 
 @Resource
 public class ComentarioController {
 
 	private final Result result;
+	private Validator validator;
 
-	public ComentarioController(Result result) {
+	public ComentarioController(Result result, Validator validator) {
 		this.result = result;
+		this.validator = validator;
 	}
 
 	@Path("/")
@@ -48,21 +46,26 @@ public class ComentarioController {
 	}
 	
 	/**
+	 * Trata e retorna o assunto
 	 * 
 	 */
 	@Path("/")
 	@Post
-	public void novo(String assunto) {
+	public void assunto(String assunto) {
 		
 		String url = Tratador.geraUrlParamAmigavel(assunto);
-		
-		System.out.println(url);
 				
 		JSONObject retorno = new JSONObject();
 		retorno.put("retorno", "ok");
 		retorno.put("url", url);
 		
 		result.use(Results.http()).body(retorno.toString());
+	}
+	
+	@Path("/{assunto}")
+	@Get
+	public void novo(String assunto) {		
+		result.include("assunto", assunto);
 	}
 
 }

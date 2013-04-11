@@ -18,16 +18,18 @@ h1 {
 	padding-bottom: 15px;
 }
 
-#assunto, #enviar {
+input[type="text"], textarea, #enviar, label {
 	font-size: 1.5em;
 	 
 }
 
-#assunto {
+input[type="text"], textarea {
 	border: 1px solid #ccc;
-	width: 350px;
+	width: 100%;
 	padding: 8px;
+	margin-bottom: 10px;
 	color: #1f31c1;
+	display: block;	
 		
 }
 
@@ -44,4 +46,16 @@ h1 {
 	font-size: 1em;
 	font-family: arial;
 	padding: 10px
+}
+
+fieldset {
+	border: none;
+	text-align: left;
+}
+
+
+fieldset label {
+	display: block;
+	padding: 10px 2px;	
+	color: #1f31c1;
 }
