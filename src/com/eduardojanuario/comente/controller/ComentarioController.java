@@ -33,11 +33,11 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.view.Results;
 
 @Resource
-public class IndexController {
+public class ComentarioController {
 
 	private final Result result;
 
-	public IndexController(Result result) {
+	public ComentarioController(Result result) {
 		this.result = result;
 	}
 

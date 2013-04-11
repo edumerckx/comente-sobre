@@ -16,6 +16,8 @@ public class Tratador {
 		retorno = retorno.replaceAll("[ïîíìÏÎÍÌ]","i");
 		retorno = retorno.replaceAll("[ãäáàâÁÀÂÃÄ]","a");
 		retorno = retorno.replaceAll("[ôõóòöÔÓÒÕÖ]","o");
+		retorno = retorno.replaceAll("[Çç]", "c");
+		retorno = retorno.replaceAll("[Ññ]", "n");
 		retorno = retorno.replaceAll(" ", "-");
     	
 		return retorno;
