@@ -8,7 +8,7 @@
 			<label for="email">E-mail</label>
 			<input type="text" name="comentario.email" id="email" />
 			<label for="comentario">Coment&aacute;rio</label>
-			<textarea rows="5" cols="50" name="comentario.comentario" id="comentario"></textarea>
+			<textarea rows="4" cols="50" name="comentario.comentario" id="comentario"></textarea>
 			<input type="hidden" name="comentario.assunto" id="assunto" value="${assunto}"> 
 			<input type="submit" name="enviar" id="enviar" value="Enviar" />
 			<span id="msg"></span>			

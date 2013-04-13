@@ -16,9 +16,12 @@
  */
 package com.eduardojanuario.comente.controller;
 
+import java.util.List;
+
 import org.json.simple.JSONObject;
 
 import com.eduardojanuario.comente.dao.ComentarioDao;
+import com.eduardojanuario.comente.model.Comentario;
 import com.eduardojanuario.comente.utils.Tratador;
 
 import br.com.caelum.vraptor.Get;
@@ -67,8 +70,25 @@ public class ComentarioController {
 	
 	@Path("/{assunto}")
 	@Get
-	public void novo(String assunto) {		
+	public void novo(String assunto) {	
 		result.include("assunto", assunto);
+	}
+	
+	@Path("/novo")
+	@Post	
+	public void adiciona(Comentario comentario) {
+		dao.adiciona(comentario);
+		
+		JSONObject retorno = new JSONObject();
+		retorno.put("retorno", "ok");
+		
+		result.use(Results.http()).body(retorno.toString());
+	}
+	
+	@Path("/lista/{assunto}")
+	@Get
+	public void listaPorAssunto(String assunto) {
+		
 	}
 
 }
