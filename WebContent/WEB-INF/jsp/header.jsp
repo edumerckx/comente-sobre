@@ -3,9 +3,9 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Comente sobre...</title>
-	<link type="text/css" rel="stylesheet" href="css/estilo.css" />
-	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-	<script src="js/custom.js"></script>
+	<link type="text/css" rel="stylesheet" href="/comente-sobre/css/estilo.css" />
+	<script src="/comente-sobre/js/jquery-1.9.1.min.js"></script>
+	<script src="/comente-sobre/js/custom.js"></script>
 	
 </head>
 <body>

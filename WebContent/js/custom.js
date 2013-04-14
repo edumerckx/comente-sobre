@@ -17,8 +17,7 @@ $(document).ready(function() {
 				'/comente-sobre/',
 				$('#assuntoForm').serialize(),
 				function(data) {
-					if (data.retorno == 'ok') {
-						// alert('url ' + data.url);
+					if (data.retorno == 'ok') {						 
 						location.href='/comente-sobre/' + data.url;
 					} else {
 						$('#msg').html("Erro ao enviar dados! Tente novamente...");
@@ -49,5 +48,49 @@ $(document).ready(function() {
 		}
 		
 		// enviar dados via post para /comente-sobre/novo...
-	});	
+		$.post(
+			'/comente-sobre/adiciona',
+			$('#comentarioForm').serialize(),
+			function(data) {
+				if (data.retorno == 'ok') {
+					location.href='/comente-sobre/comentarios/';
+				}
+			},
+			'json'
+		);
+		return false;
+	});
+	
+	
+	/**
+	 * Estilo para listagem de comentários
+	 * Tabela 'zebrada'
+	 * 
+	 */
+	$('table#comentarios tbody tr:odd').addClass('lista_zebrada');
 });
+
+/**
+ * Excluir o comentário informado
+ * 
+ * @param id
+ */
+function excluir(id) {
+	
+	if (id > 0) {
+		$.post(
+			'/comente-sobre/exclui',
+			{'id':id},
+			function(data) {
+				if (data.retorno == 'ok') {
+					$('#linha_' + id).remove();
+				} else {
+					$('#msg').html('Erro ao excluir comentário');
+				}
+			}, 
+			'json'
+			
+		);
+		return false;
+	}
+}

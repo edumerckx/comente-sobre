@@ -74,7 +74,7 @@ public class ComentarioController {
 		result.include("assunto", assunto);
 	}
 	
-	@Path("/novo")
+	@Path("/adiciona")
 	@Post	
 	public void adiciona(Comentario comentario) {
 		dao.adiciona(comentario);
@@ -85,10 +85,33 @@ public class ComentarioController {
 		result.use(Results.http()).body(retorno.toString());
 	}
 	
-	@Path("/lista/{assunto}")
+	@Path("/comentarios/{assunto}")
 	@Get
-	public void listaPorAssunto(String assunto) {
-		
+	public List<Comentario> listaPorAssunto(String assunto) {
+		// recupera lista de comentários 
+		// por assunto
+		result.include("assunto", assunto); 		
+		return dao.listaPorAssunto(assunto);
 	}
 
+	@Path("/comentarios/")
+	@Get
+	public List<Comentario> lista() {
+		// recupera lista dos comentários
+		// cadastrados
+		return dao.listaTodos();
+	}
+	
+	@Path("/exclui")
+	@Post
+	public void exclui(Integer id) {
+		
+		Comentario comentario = dao.getComentario(id);
+		dao.exclui(comentario);
+		
+		JSONObject retorno = new JSONObject();
+		retorno.put("retorno", "ok");
+		
+		result.use(Results.http()).body(retorno.toString());
+	}
 }

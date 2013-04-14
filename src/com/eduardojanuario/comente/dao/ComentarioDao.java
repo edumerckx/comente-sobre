@@ -41,8 +41,26 @@ public class ComentarioDao {
 	 */
 	public List<Comentario> listaPorAssunto(String assunto) {
 		Query query = em.createQuery("from Comentario c where c.assunto =:assunto");
-		query.setParameter("assunto", "assunto");		
+		query.setParameter("assunto", assunto);		
 		return query.getResultList();
 	}
 	
+	/**
+	 * Exclui comentário pelo id informado
+	 * 	
+	 * @param id
+	 */
+	public void exclui(Comentario comentario) {
+		em.remove(comentario);
+	}
+	
+	/**
+	 * Recupera comentário
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public Comentario getComentario(Integer id) {
+		return em.find(Comentario.class, id);
+	}
 }
