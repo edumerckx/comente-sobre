@@ -97,6 +97,9 @@ public class ComentarioController {
 	@Path("/comentarios/")
 	@Get
 	public List<Comentario> lista() {
+		// lista de assuntos
+		result.include("listaAssunto", dao.listaAssunto());
+		
 		// recupera lista dos comentários
 		// cadastrados
 		return dao.listaTodos();
@@ -113,5 +116,11 @@ public class ComentarioController {
 		retorno.put("retorno", "ok");
 		
 		result.use(Results.http()).body(retorno.toString());
+	}
+	
+	@Path("/comentario/{id}")
+	@Get
+	public Comentario exibeComentario(Integer id) {
+		return dao.getComentario(id);
 	}
 }

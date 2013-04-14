@@ -63,4 +63,15 @@ public class ComentarioDao {
 	public Comentario getComentario(Integer id) {
 		return em.find(Comentario.class, id);
 	}
+	
+	/**
+	 * Lista todos os assuntos cadastrados para os
+	 * comentários
+	 * 
+	 * @return
+	 */
+	public List<String> listaAssunto() {
+		Query query = em.createQuery("select distinct(c.assunto) from Comentario c");
+		return query.getResultList();
+	}
 }

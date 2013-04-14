@@ -1,15 +1,42 @@
 * {
 	margin: 0;
-	padding: 0;	
+	padding: 0;
 }
 
 body {
 	text-align: center;
 }
 
+#menu {
+	margin-top: 0;
+}
+
+#menu ul {
+	list-style: none;
+}
+
+#menu li {
+	display: inline;
+}
+
+#menu li a {
+	display: inline-block;
+	padding: 10px;
+	letter-spacing: 1px;
+	font-size: 1.3em;
+	font-family: sans-serif;
+	text-decoration: none;
+	background-color: #555;
+	color: #fff;
+}
+
+#menu li a:hover {
+	background-color: #f50;
+}
+
 #conteudo {
 	width: 800px;
-	margin: 100px auto;
+	margin: 70px auto;
 	font-family: sans-serif;
 }
 
@@ -18,19 +45,17 @@ h1 {
 	padding-bottom: 15px;
 }
 
-input[type="text"], textarea, #enviar, label {
+input[type="text"],textarea,#enviar,label {
 	font-size: 1.5em;
-	 
 }
 
-input[type="text"], textarea {
+input[type="text"],textarea {
 	border: 1px solid #ccc;
 	width: 100%;
 	padding: 8px;
 	margin-bottom: 10px;
 	color: #1f31c1;
-	display: block;	
-		
+	display: block;
 }
 
 #enviar {
@@ -53,15 +78,15 @@ fieldset {
 	text-align: left;
 }
 
-
 fieldset label {
 	display: block;
-	padding: 10px 2px;	
+	padding: 10px 2px;
 	color: #1f31c1;
 }
 
 table {
 	width: 100%;
+	text-align: left;
 }
 
 table th {
@@ -74,6 +99,49 @@ table td {
 	padding: 5px;
 }
 
+table tbody tr:hover {
+	background-color: #ffa;
+}
+
 .lista_zebrada {
 	background-color: #eee;
 }
+
+.assunto {
+	padding: 5px;
+	background-color: #333;
+	color: #fff;
+	text-decoration: none;
+	letter-spacing: 2px;
+}
+
+.assunto:hover {
+	color: #fff;
+	background-color: #f50;
+}
+
+#comentarios .excluir {
+	padding: 2px;
+	border: none;
+	background-color: #e00;
+	color: #eee;
+}
+
+#detalhe {
+	font-family: sans-serif;
+	margin: 70px auto;
+	width: 400px;
+	text-align: left;
+}
+
+#detalhe label {
+	font-size: 1em; 
+	font-weight : bold;
+	width: 100px;
+	display: inline-block;
+}
+
+#detalhe span {
+	font-style: italic;
+}
+

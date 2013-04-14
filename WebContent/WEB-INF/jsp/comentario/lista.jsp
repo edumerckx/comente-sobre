@@ -1,9 +1,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <c:import url="../header.jsp"/>
 
 <div id="conteudo">	
+	<c:forEach items="${listaAssunto}" var="assunto">
+		<a href="/comente-sobre/comentarios/${assunto}" class="assunto">${assunto}</a>
+	</c:forEach>
+
 	<span id="msg"></span>
-	<table id="comentarios">
+	<table id="comentarios" cellspacing="0">
 		<thead>
 			<tr>
 				<th>Assunto</th>
@@ -14,11 +19,11 @@
 		</thead>
 		<tbody>
 		<c:forEach items="${comentarioList}" var="c">
-			<tr id="linha_${c.id}">
-				<td>${c.assunto}</td>
-				<td>${c.email}</td>
-				<td>${c.comentario}</td>
-				<td><input type="button" name="excluir " id="excluir${c.id}" class="excluir" value="Excluir" onclick="excluir(${c.id})" />
+			<tr id="linha_${c.id}" onclick="exibeComentario(${c.id})">
+				<td width="10%">${c.assunto}</td>
+				<td width="25%">${c.email}</td>
+				<td width="55%">${fn:substring(c.comentario, 0, 40)}...</td>
+				<td width="10%"><input type="button" name="excluir " id="excluir${c.id}" class="excluir" value="Excluir" onclick="excluir(${c.id})" />
 			</tr>
 		</c:forEach>
 		</tbody>
